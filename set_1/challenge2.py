@@ -19,6 +19,7 @@ s2 = sys.argv[2]
 s3 = ""
 
 for i in range(len(s1)):
-	s3 += str(int(s1[i],16) ^ int(s2[i],16))
+	s3 +=hex(int(s1[i],16) ^ int(s2[i],16))[2:]
+
 
 print(s3)
