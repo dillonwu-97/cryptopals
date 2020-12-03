@@ -1,2 +1,2 @@
 # cryptopals
-Code for challenges found here: http://cryptopals.com/
+Challenges found here: http://cryptopals.com/
