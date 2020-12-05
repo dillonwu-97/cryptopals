@@ -1,4 +1,6 @@
 '''
+Solution:
+Terminator X: Bring the noise
 
 Task:
 It's (file.txt) been base64'd after being encrypted with repeating-key XOR.
