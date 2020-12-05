@@ -15,6 +15,7 @@ It should come out to:
 a282b2f20430a652e2c652a3124333a653e2b2027630c692b20283165286326302e27282f
 
 '''
+from set1_lib import lib
 
 def xor(s, key):
 	ret = ''
@@ -22,6 +23,7 @@ def xor(s, key):
 	# print(key)
 	for i in range(len(s)):
 		temp = hex(ord(s[i]) ^ ord(key[i]))[2:].zfill(2)
+		# print(ord(s[i]), s[i], ord(key[i]), key[i], temp)
 		ret += temp
 		# print(temp, ord(s[i]), ord(key[i]))
 	return ret
@@ -34,6 +36,7 @@ def main():
 	for i in range(len(ret)):
 		if ans[i] != ret[i]:
 			print(i, ans[i], ret[i])
+	# print(lib.vowel_count(ans))
 
 if __name__ == '__main__':
 	main()
