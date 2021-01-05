@@ -82,18 +82,31 @@ def main():
 
 	# 32-127 is standard ascii range
 	# Not sure how to find the next 16 characters
-	block = "A"*15
+	block = "A"*15 # this is used to deduce the next character
 	p = 'A' * 15
-	for count in range(16):
+	start = 0
+	end = 1
+	ciphertext = encrypt_ecb(p.encode() + base64.b64decode(s), key)
+	s_solved = ""
+	while (16 * end < len(ciphertext)):
+		if (len(p) == 0): 
+			# print("new start and end ", start, end)
+			start +=1
+			end+=1
+			p = 'A' * 16
+		# print(count, block)
 		print(block)
 		ciphertext = encrypt_ecb(p.encode() + base64.b64decode(s), key)
-		for i in range(32, 128):
+		for i in range(128):
 			temp = block + chr(i)
 			val = encrypt_ecb(temp.encode() + base64.b64decode(s), key)
-			if (val[:16] == ciphertext[:16]):
+			# shift the ciphertext being compared
+			if (val[:16] == ciphertext[16*start:16*end]):
 				block = temp[1:]
 				p = p[1:]
+				s_solved += temp[-1]
 				break
+	print(s_solved[:-1]) # ignore last character
 if __name__ == '__main__':
 	main()
 
