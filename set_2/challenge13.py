@@ -100,7 +100,7 @@ def construct(key):
 	# print(decrypt(email_cipher[:48], key))
 
 	# Getting the encrypted characters for "admin"
-	admin = 'abcdefghijadmin' + '\x04'*11
+	admin = 'abcdefghijadmin' + chr(11)*11
 	admin_cipher = encrypt(admin, key)
 	admin_block = admin_cipher[16:32]
 

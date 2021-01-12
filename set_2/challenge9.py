@@ -16,8 +16,7 @@ def pad(text, p, length):
 
 def main():
 	start = 'YELLOW SUBMARINE'
-	p = '\x04'
-	ret = pad(start, p, 20)
+	ret = pad(start, chr(20 - len(start)), 20)
 	print(start, ret)
 	print(len(start), len(ret))
 
