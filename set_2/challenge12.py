@@ -99,7 +99,7 @@ def main():
 		ciphertext = encrypt_ecb(p.encode() + base64.b64decode(s), key)
 		for i in range(128):
 			temp = block + chr(i)
-			val = encrypt_ecb(temp.encode() + base64.b64decode(s), key)
+			val = encrypt_ecb(temp.encode(), key)
 			# shift the ciphertext being compared
 			if (val[:16] == ciphertext[16*start:16*end]):
 				block = temp[1:]
